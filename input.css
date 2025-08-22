@@ -1,0 +1,11 @@
+/* src/input.css */
+@import "tailwindcss";
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* برای Chrome / Safari */
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* برای IE و Edge */
+  scrollbar-width: none;     /* برای Firefox */
+}
