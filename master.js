@@ -3,7 +3,7 @@ let audioPlaying
 // songs
 const songs = [
     {
-        tittle: 'Burden',
+        title: 'Burden',
         artist: 'opeth',
         cover: './img/burden.jpg',
         src: './music/burden.mp3',
@@ -11,7 +11,7 @@ const songs = [
     },
 
     {
-        tittle: 'Flying Whales',
+        title: 'Flying Whales',
         artist: 'gojira',
         cover: './img/Gojira-Flying-Whales.jpg',
         src: './music/flyingWhales.mp3',
@@ -19,7 +19,7 @@ const songs = [
     },
 
     {
-        tittle: "Sweet Child O'Mine",
+        title: "Sweet Child O'Mine",
         artist: "Guns N' Roses",
         cover: './img/sweetChild.jpg',
         src: './music/sweet_child_o_mine.mp3',
@@ -27,7 +27,7 @@ const songs = [
     },
 
     {
-        tittle: 'Nightmare',
+        title: 'Nightmare',
         artist: 'Avenged Sevenfold',
         cover: './img/Nightmare.jpeg',
         src: './music/nightmare.mp3',
@@ -35,7 +35,7 @@ const songs = [
     },
 
     {
-        tittle: 'Born in Winter',
+        title: 'Born in Winter',
         artist: 'Gojira',
         cover: './img/born.jpeg',
         src: './music/bornInWinter.mp3',
@@ -43,7 +43,7 @@ const songs = [
     },
 
     {
-        tittle: 'Flying',
+        title: 'Flying',
         artist: 'Anathema',
         cover: './img/flying.jpeg',
         src: './music/flying.mp3',
@@ -51,7 +51,7 @@ const songs = [
     },
 
     {
-        tittle: 'As I Am',
+        title: 'As I Am',
         artist: 'Dream Theater',
         cover: './img/dream.jpeg',
         src: './music/asIAm.mp3',
@@ -59,7 +59,7 @@ const songs = [
     },
 
     {
-        tittle: 'Afterlife',
+        title: 'Afterlife',
         artist: 'Avenged Sevenfold',
         cover: './img/a7x.png',
         src: './music/afterlife.mp3',
@@ -67,7 +67,7 @@ const songs = [
     },
 
     {
-        tittle: 'Tornado Of Souls',
+        title: 'Tornado Of Souls',
         artist: 'Megadeth',
         cover: './img/tor.jpeg',
         src: './music/tornado.mp3',
@@ -75,7 +75,7 @@ const songs = [
     },
 
     {
-        tittle: 'Forty Six & 2',
+        title: 'Forty Six & 2',
         artist: 'TOOL',
         cover: './img/tool.jpeg',
         src: './music/tool.mp3',
@@ -83,7 +83,7 @@ const songs = [
     },
 
     {
-        tittle: 'Kill The Pain',
+        title: 'Kill The Pain',
         artist: 'Accept',
         cover: './img/kill.jpeg',
         src: './music/kill.mp3',
@@ -91,7 +91,7 @@ const songs = [
     },
 
     {
-        tittle: 'one',
+        title: 'one',
         artist: 'Metallica',
         cover: './img/one.jpeg',
         src: './music/one.mp3',
@@ -113,13 +113,12 @@ songs.map((val, i) => {
             <div class="aspect-square bg-[url('${val.cover}')] bg-cover bg-center"></div>
             <!-- text -->
             <div class="p-1">
-                <div class="font-medium truncate">${val.tittle}</div>
+                <div class="font-medium truncate">${val.title}</div>
                 <div class="text-xs text-white/60">${val.artist}</div>
             </div>
         `
     grid.appendChild(Div)
     Div.dataset.index = i
-
 })
 
 
@@ -152,7 +151,7 @@ function loadAndPlay(songPlaying) {
 
     // footer
     _cover.src = songPlaying.cover
-    _title.textContent = songPlaying.tittle
+    _title.textContent = songPlaying.title
     _artist.textContent = songPlaying.artist
 
     _timeDur.textContent = convertTime(songPlaying.duration)
@@ -313,7 +312,7 @@ function backSong() {
     if (shufleFlag % 2) {
         j = songPlayingNum
 
-        songPlayingNum = Math.floor(Math.random() * 12);
+        songPlayingNum = Math.floor(Math.random() * songs.length);
         if (songPlayingNum == j) {
             songPlayingNum = j
             backSong()
@@ -394,7 +393,7 @@ let repeatFlag = 0
 
 repeatBtn.addEventListener('click', () => {
 
-    if (shufleFlag % 2 != 1) {
+    if (repeatFlag % 2 != 1) {
         repeatBtn.innerHTML = `
     <svg id="repeat" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -415,6 +414,6 @@ repeatBtn.addEventListener('click', () => {
         repeat = false
     }
 
-    shufleFlag++
+    repeatFlag++
 
 })
