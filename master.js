@@ -190,7 +190,6 @@ audio.addEventListener('timeupdate', () => {
     // ahang tamom shod boro badi
     if (_timeNow.innerText == _timeDur.innerText){
         if (repeat){
-            console.log('lksjdflsjkldf');
             songPlaying = songs[songPlayingNum]
             loadAndPlay(songPlaying)
         }else{
@@ -385,7 +384,6 @@ function ifPlay() {
     } else {
         audioPlaying = false
     }
-    console.log(audioPlaying);
 }
 
 // repeat
