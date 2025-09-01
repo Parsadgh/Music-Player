@@ -240,14 +240,13 @@ songs.map((val, i) => {
     let Div = document.createElement('div')
     Div.classList.add('songs')
     Div.innerHTML = `
-        <!-- cover -->
-            <div class="aspect-square bg-[url('${val.cover}')] bg-cover bg-center"></div>
-            <!-- text -->
-            <div class="p-1">
-                <div class="font-medium truncate">${val.title}</div>
-                <div class="text-xs text-white/60">${val.artist}</div>
-            </div>
-        `
+  <div class="aspect-square bg-cover bg-center" style="background-image:url('${val.cover}')"></div>
+  <div class="p-1">
+    <div class="font-medium truncate">${val.title}</div>
+    <div class="text-xs text-white/60">${val.artist}</div>
+  </div>
+`;
+
     // Div.dataset.index = i
 
     grid.appendChild(Div)
